@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+<h1>Pratos do dia</h1>
+{% for prato in pratos %}
+    <p>{{prato}}</p>
+{% endfor %}
+<form method="post">
+    <div>
+    <h3>Para adicionar um prato</h3>
+    {% for field in form %}
+        {% csrf_token %}
+        {{field.label_tag}}
+        {{field}}
+
+
+    {% endfor %}
+    <button type="submit">Adicionar</button>
+</div>
+
+</form>
+
+</body>
+</html>
