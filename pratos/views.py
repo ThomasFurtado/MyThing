@@ -13,3 +13,13 @@ def home_screen_view(request):
     context = {'pratos': pratos}
     context['form'] = form
     return render(request, 'pratos/home.html', context)
+
+def delete(request, pk):
+    item = Choice.objects.get(id=pk)
+
+    if request.POST:
+        item.delete()
+        return redirect('/')
+    context = {'item': item}
+    return render(request, 'pratos/delete.html', context)
+

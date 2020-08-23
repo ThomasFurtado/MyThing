@@ -1,0 +1,7 @@
+<h3>Tem certeza que deseja excluir "{{item}}" ? </h3>
+<a href="{% url 'home' %}">Cancel</a>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+</form>
